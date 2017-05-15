@@ -21,11 +21,10 @@ services:
     - VIRTUAL_HOST=ims.dev
 
   git:
-    build: ./gitHook
+    build:  registry.cn-shenzhen.aliyuncs.com/xiaobe/githook
     restart: always
     ports:
     - '80'
-    - 9000:9000
     volumes:
       - ~/Code/phpwebhook:/var/www/html
       - ~/Code:/var/www/GIT
