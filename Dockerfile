@@ -17,3 +17,4 @@ RUN apt-get update \
     && apt-get autoclean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
+CP ./display.ini /usr/local/etc/php/conf.d/
