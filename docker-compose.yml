@@ -11,7 +11,7 @@ services:
     - /var/run/docker.sock:/tmp/docker.sock:ro
 
   site:
-  build:  daocloud.io/xiaobe/php56_pdo_mysql
+    image: registry.cn-shenzhen.aliyuncs.com/xiaobe/php56
     restart: always
     ports:
     - '80'
@@ -19,6 +19,18 @@ services:
     - ~/Code/kod:/var/www/html
     environment:
     - VIRTUAL_HOST=ims.dev
+
+  git:
+    build: ./gitHook
+    restart: always
+    ports:
+    - '80'
+    - 9000:9000
+    volumes:
+      - ~/Code/phpwebhook:/var/www/html
+      - ~/Code:/var/www/GIT
+    environment:
+    - VIRTUAL_HOST=tp5.dev
 
   mysql:
     build: ./mysql
