@@ -1,0 +1,39 @@
+version: '2'
+
+services:
+
+  proxy:
+    image: daocloud.io/daocloud/nginx-proxy:latest
+    restart: always
+    ports:
+    - 80:80
+    volumes:
+    - /var/run/docker.sock:/tmp/docker.sock:ro
+
+  site:
+    build: ./
+    restart: always
+    ports:
+    - '80'
+    volumes:
+    - ~/Code/kod:/var/www/html
+    environment:
+    - VIRTUAL_HOST=ims.dev
+
+  mysql:
+    build: ./mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+### Memcached Container #####################################
+
+  memcached:
+    build: ./memcached
+    volumes:
+      - ./memcached:/var/lib/memcached
+    ports:
+      - "11211:11211"
