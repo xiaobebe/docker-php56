@@ -11,7 +11,7 @@ services:
     - /var/run/docker.sock:/tmp/docker.sock:ro
 
   site:
-    build: ./
+  build:  daocloud.io/xiaobe/php56_pdo_mysql
     restart: always
     ports:
     - '80'
