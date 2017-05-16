@@ -33,19 +33,19 @@ $descriptorspec = array(
     ) // stderr is a file to write to
 );
 
-// $post=file_get_contents('php://input');
-// $postData = json_decode($post,true);
-// if($postData['password'] !== 'xiaobebe'){
-//     writeLog('un-authorization request:'.$_SERVER['HTTP_HOST']);
-//     die;
-// }
+$post=file_get_contents('php://input');
+$postData = json_decode($post,true);
+if($postData['password'] !== 'xiaobebe'){
+    writeLog('un-authorization request:'.$_SERVER['HTTP_HOST']);
+    die;
+}
 
 // http(s)方式如何自动记住密码
 // git config --global credential.helper store
 $username = 'xiaobe';
-$password = 'w19941024';
+$password = 'xxxxxxx';
 
-$cwd = '/var/www/GIT/line';  //The initial working dir for the command. This must be an absolute directory path
+$cwd = '/var/www/GIT/line2';  //The initial working dir for the command. This must be an absolute directory path
 $projectSuffix = 'xiaobe/line.git';
 $branch = 'master';
 
@@ -57,7 +57,11 @@ $processes[1] = proc_open('chmod 777 log.txt',$descriptorspec,$pipes,__DIR__,NUL
 $processes[3] = proc_open('touch error-output.txt',$descriptorspec,$pipes,__DIR__,NULL);
 $processes[4] = proc_open('chmod 777 error-output.txt',$descriptorspec,$pipes,__DIR__,NULL);
 // update code
-shell_exec("cd ".$cwd.' && git reset --hard HEAD && git pull '.$updateUrl.' '.$branch);
+$re=shell_exec("cd ".$cwd.' && git pull '.$updateUrl.' '.$branch);
+if($re==null){
+  shell_exec("cd ".$cwd.' && git clone '.$updateUrl.' . && git config core.filemode false');
+}
+var_dump($re);
 
 // $processes[5] = proc_open('git reset --hard HEAD && git pull '.$updateUrl.' '.$branch,$descriptorspec,$pipes,$cwd,NULL);
 

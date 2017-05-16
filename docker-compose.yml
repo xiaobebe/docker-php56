@@ -21,13 +21,17 @@ services:
     - VIRTUAL_HOST=ims.dev
 
   git:
-    build:  registry.cn-shenzhen.aliyuncs.com/xiaobe/githook
+    image: registry.cn-shenzhen.aliyuncs.com/xiaobe/alpine-php-githook
+    # build: 
+    #   context: ./gitHook
+    #   dockerfile: "Dockerfile7"
+    privileged: false
     restart: always
     ports:
-    - '80'
+    - '8088:8088'
     volumes:
-      - ~/Code/phpwebhook:/var/www/html
-      - ~/Code:/var/www/GIT
+      - /home/xiaobe/Code/phpwebhook:/var/www/html
+      - /home/xiaobe/Code:/var/www/GIT
     environment:
     - VIRTUAL_HOST=tp5.dev
 

@@ -1,0 +1,22 @@
+FROM hub.c.163.com/library/php:7.1.4-fpm-alpine
+
+MAINTAINER xiaobe <wyy.xb@qq.com>
+
+ADD ./webhook.php /var/www/
+
+#  - ~/Code/phpwebhook:/var/www/html
+#  - ~/Code:/var/www/GIT
+
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories
+
+RUN apk update \
+    && apk upgrade \
+    && apk add --no-cache bash git \
+    && mkdir /var/www/GIT 
+
+
+EXPOSE 8088
+
+ENTRYPOINT ["php", "-S", "0.0.0.0:8088","-t","/var/www/html"]
+
+
