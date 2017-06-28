@@ -1,0 +1,46 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+version	/Users/apple/myDocker/php56/docker-compose.yml	/^version: '2'$/;"	function	line:1
+services	/Users/apple/myDocker/php56/docker-compose.yml	/^services:$/;"	function	line:3
+proxy	/Users/apple/myDocker/php56/docker-compose.yml	/^  proxy:$/;"	function	line:5
+image	/Users/apple/myDocker/php56/docker-compose.yml	/^    image: daocloud.io\/daocloud\/nginx-proxy:latest$/;"	function	line:6
+ports	/Users/apple/myDocker/php56/docker-compose.yml	/^    ports:$/;"	function	line:7
+volumes	/Users/apple/myDocker/php56/docker-compose.yml	/^    volumes:$/;"	function	line:9
+site	/Users/apple/myDocker/php56/docker-compose.yml	/^  site:$/;"	function	line:12
+image	/Users/apple/myDocker/php56/docker-compose.yml	/^    image: registry.cn-shenzhen.aliyuncs.com\/xiaobe\/php56$/;"	function	line:13
+ports	/Users/apple/myDocker/php56/docker-compose.yml	/^    ports:$/;"	function	line:14
+volumes	/Users/apple/myDocker/php56/docker-compose.yml	/^    volumes:$/;"	function	line:16
+environment	/Users/apple/myDocker/php56/docker-compose.yml	/^    environment:$/;"	function	line:18
+git	/Users/apple/myDocker/php56/docker-compose.yml	/^  git:$/;"	function	line:21
+image	/Users/apple/myDocker/php56/docker-compose.yml	/^    image: registry.cn-shenzhen.aliyuncs.com\/xiaobe\/alpine-php-githook$/;"	function	line:22
+privileged	/Users/apple/myDocker/php56/docker-compose.yml	/^    privileged: false$/;"	function	line:26
+ports	/Users/apple/myDocker/php56/docker-compose.yml	/^    ports:$/;"	function	line:27
+volumes	/Users/apple/myDocker/php56/docker-compose.yml	/^    volumes:$/;"	function	line:29
+environment	/Users/apple/myDocker/php56/docker-compose.yml	/^    environment:$/;"	function	line:32
+mysql	/Users/apple/myDocker/php56/docker-compose.yml	/^  mysql:$/;"	function	line:35
+build	/Users/apple/myDocker/php56/docker-compose.yml	/^    build: .\/mysql$/;"	function	line:36
+environment	/Users/apple/myDocker/php56/docker-compose.yml	/^    environment:$/;"	function	line:37
+volumes	/Users/apple/myDocker/php56/docker-compose.yml	/^    volumes:$/;"	function	line:39
+ports	/Users/apple/myDocker/php56/docker-compose.yml	/^    ports:$/;"	function	line:41
+memcached	/Users/apple/myDocker/php56/docker-compose.yml	/^  memcached:$/;"	function	line:46
+build	/Users/apple/myDocker/php56/docker-compose.yml	/^    build: .\/memcached$/;"	function	line:47
+volumes	/Users/apple/myDocker/php56/docker-compose.yml	/^    volumes:$/;"	function	line:48
+ports	/Users/apple/myDocker/php56/docker-compose.yml	/^    ports:$/;"	function	line:50
+使用	/Users/apple/myDocker/php56/gitHook/README.md	/^# 使用$/;"	function	line:1
+writeLog	/Users/apple/myDocker/php56/gitHook/webhook.php	/^function writeLog($msg){$/;"	function	line:12
+descriptorspec	/Users/apple/myDocker/php56/gitHook/webhook.php	/^$descriptorspec = array($/;"	variable	line:20
+post	/Users/apple/myDocker/php56/gitHook/webhook.php	/^$post=file_get_contents('php:\/\/input');$/;"	variable	line:36
+postData	/Users/apple/myDocker/php56/gitHook/webhook.php	/^$postData = json_decode($post,true);$/;"	variable	line:37
+username	/Users/apple/myDocker/php56/gitHook/webhook.php	/^$username = 'xiaobe';$/;"	variable	line:45
+password	/Users/apple/myDocker/php56/gitHook/webhook.php	/^$password = 'xxxxxxx';$/;"	variable	line:46
+cwd	/Users/apple/myDocker/php56/gitHook/webhook.php	/^$cwd = '\/var\/www\/GIT\/line2';  \/\/The initial working dir for the command. This must be an absolute directory path$/;"	variable	line:48
+projectSuffix	/Users/apple/myDocker/php56/gitHook/webhook.php	/^$projectSuffix = 'xiaobe\/line.git';$/;"	variable	line:49
+branch	/Users/apple/myDocker/php56/gitHook/webhook.php	/^$branch = 'master';$/;"	variable	line:50
+updateUrl	/Users/apple/myDocker/php56/gitHook/webhook.php	/^$updateUrl = 'https:\/\/'.$username.':'.$password.'@git.oschina.net\/'.$projectSuffix;$/;"	variable	line:52
+re	/Users/apple/myDocker/php56/gitHook/webhook.php	/^$re=shell_exec("cd ".$cwd.' && git pull '.$updateUrl.' '.$branch);$/;"	variable	line:60
+count	/Users/apple/myDocker/php56/gitHook/webhook.php	/^$count = count($processes);$/;"	variable	line:71
+return_value	/Users/apple/myDocker/php56/gitHook/webhook.php	/^        $return_value = proc_close($processes[$i]);$/;"	variable	line:74

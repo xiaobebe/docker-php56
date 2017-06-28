@@ -1,4 +1,6 @@
-FROM daocloud.io/library/mysql:5.5.42
+FROM hub.c.163.com/library/mysql:5.7
+
+MAINTAINER Mahmoud Zalt <mahmoud@zalt.me>
 
 RUN chown -R mysql:root /var/lib/mysql/
 

@@ -4,15 +4,13 @@ services:
 
   proxy:
     image: daocloud.io/daocloud/nginx-proxy:latest
-    restart: always
     ports:
     - 80:80
     volumes:
     - /var/run/docker.sock:/tmp/docker.sock:ro
 
   site:
-    image: registry.cn-shenzhen.aliyuncs.com/xiaobe/php56
-    restart: always
+    build: ./
     ports:
     - '80'
     volumes:
@@ -26,7 +24,6 @@ services:
     #   context: ./gitHook
     #   dockerfile: "Dockerfile7"
     privileged: false
-    restart: always
     ports:
     - '8088:8088'
     volumes:
@@ -40,7 +37,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
-      - ./mysql:/var/lib/mysql
+      - mysql:/var/lib/mysql
     ports:
       - "3306:3306"
 
@@ -52,3 +49,7 @@ services:
       - ./memcached:/var/lib/memcached
     ports:
       - "11211:11211"
+      
+volumes:
+  mysql:
+    driver: "local"
