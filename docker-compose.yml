@@ -25,7 +25,8 @@ services:
   #     - "6379:6379"
 
   phpfpm:
-    build: ./php-fpm5.6
+    image: registry.cn-shenzhen.aliyuncs.com/xiaobe/php56:latest
+    # build: ./php-fpm5.6
     volumes:
       - ../bhj_dev:/var/www/html
     ports:
