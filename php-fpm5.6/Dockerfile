@@ -1,13 +1,13 @@
 FROM php:5.6-fpm
 RUN apt-get update && apt-get install -y libpng-dev vim supervisor
 
-RUN	docker-php-ext-install mysqli mysql pdo_mysql gd pcntl memcached \
+RUN	docker-php-ext-install mysqli mysql pdo_mysql gd pcntl \
 
-	&& pecl install redis \
-    && docker-php-ext-enable redis \
+	# && pecl install redis \
+    # && docker-php-ext-enable redis \
 
     # 安装memcache扩展
-    && apt-get install -y php5-memcache vim \
+    && apt-get install -y php5-memcache vim memcached \
     && ln -s /usr/lib/php5/20131226/memcache.so /usr/local/lib/php/extensions/no-debug-non-zts-20131226/ \
     && docker-php-ext-enable memcache \
 

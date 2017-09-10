@@ -1,11 +1,11 @@
 ## 使用说明
 
 ```
-git clone https://git.oschina.net/chnkarl/bhj_env.git
-cd bhj_env
+git clone https://github.com/xiaobebe/docker-php56.git
+cd docker-php56
 docker-compose up -d
 ```
-就这样 你就拥有了 PHP5.6 + redis + mysql5.6 + nginx 的环境
+就这样 你就拥有了 PHP5.6 + memcache + mysql5.6 + nginx 的环境
 
 目前挂载目录在
 ```
