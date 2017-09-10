@@ -1,55 +1,32 @@
 version: '2'
 
 services:
-
-  proxy:
-    image: daocloud.io/daocloud/nginx-proxy:latest
+  nginx:
+    image: nginx:stable
     ports:
-    - 80:80
+      - 80:80
+      - 443:443
     volumes:
-    - /var/run/docker.sock:/tmp/docker.sock:ro
-
-  site:
-    build: ./
-    ports:
-    - '80'
-    volumes:
-    - ~/Code/kod:/var/www/html
-    environment:
-    - VIRTUAL_HOST=ims.dev
-
-  git:
-    image: registry.cn-shenzhen.aliyuncs.com/xiaobe/alpine-php-githook
-    # build: 
-    #   context: ./gitHook
-    #   dockerfile: "Dockerfile7"
-    privileged: false
-    ports:
-    - '8088:8088'
-    volumes:
-      - /home/xiaobe/Code/phpwebhook:/var/www/html
-      - /home/xiaobe/Code:/var/www/GIT
-    environment:
-    - VIRTUAL_HOST=tp5.dev
+      - ./vhost:/etc/nginx/conf.d
+      - ../bhj_dev:/var/www/html
+    links:
+      - phpfpm
 
   mysql:
-    build: ./mysql
+    image: mysql:5.6
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-    volumes:
-      - mysql:/var/lib/mysql
+      MYSQL_ROOT_PASSWORD: qazasdedc123
     ports:
       - "3306:3306"
 
-### Memcached Container #####################################
-
-  memcached:
-    build: ./memcached
-    volumes:
-      - ./memcached:/var/lib/memcached
+  redis:
+    image: redis:3.2.9-alpine
     ports:
-      - "11211:11211"
-      
-volumes:
-  mysql:
-    driver: "local"
+      - "6379:6379"
+
+  phpfpm:
+    build: ./php-fpm5.6
+    volumes:
+      - ../bhj_dev:/var/www/html
+    ports:
+      - "9000"
