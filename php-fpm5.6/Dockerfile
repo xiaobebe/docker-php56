@@ -18,3 +18,5 @@ RUN	docker-php-ext-install mysqli mysql pdo_mysql gd pcntl \
 
 COPY ./display.ini /usr/local/etc/php/conf.d/
 
+CMD memcached -u root -d \
+	&& php-fpm
